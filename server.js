@@ -9,7 +9,7 @@ const port = process.env.PORT || 3100;
 server.use(middlewares);
 server.use(
     jsonServer.rewriter({
-        '/proxy/*': '/$1',
+        '/api/*': '/$1',
     })
 );
 
