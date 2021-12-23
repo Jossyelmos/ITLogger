@@ -6,7 +6,7 @@ import {
     SET_LOADING
 } from './types';
 
-const api = 'http://localhost:3100/techs'
+const api = 'https://it-logger-2.herokuapp.com/techs'
 // Get techs from server
 export const getTechs = () => async dispatch => {
     try {
