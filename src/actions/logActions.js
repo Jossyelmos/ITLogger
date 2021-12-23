@@ -10,12 +10,14 @@ import {
     CLEAR_CURRENT 
 } from './types';
 
+const api = 'http://localhost:3100/logs'
+
 // Get Logs from server
 export const getLogs = () => async dispatch => {
     try {
         setLoading();
 
-        const res = await fetch('https://pure-anchorage-58582.herokuapp.com/logs');
+        const res = await fetch(api);
         const data = await res.json();
 
         dispatch({
@@ -35,7 +37,7 @@ export const addLogs = (log) => async dispatch => {
     try {
         setLoading();
 
-        const res = await fetch('https://pure-anchorage-58582.herokuapp.com/logs', {
+        const res = await fetch(api, {
             method: 'POST',
             body: JSON.stringify(log),
             headers: {
@@ -61,7 +63,7 @@ export const deleteLog = id => async dispatch => {
     try {
         setLoading(true);
 
-        await fetch(`https://pure-anchorage-58582.herokuapp.com/logs/${id}`, {method: 'DELETE'});
+        await fetch(`api/${id}`, {method: 'DELETE'});
 
         dispatch({
             type: DELETE_LOG,
@@ -80,7 +82,7 @@ export const updateLog = log => async dispatch => {
     try {
         setLoading(true);
 
-        const res = await fetch(`https://pure-anchorage-58582.herokuapp.com/logs/${log.id}`, {
+        const res = await fetch(`api/${log.id}`, {
             method: 'PUT',
             body: JSON.stringify(log),
             headers: {
@@ -107,7 +109,7 @@ export const searchLogs = (text) => async dispatch => {
     try {
         setLoading();
 
-        const res = await fetch(`https://pure-anchorage-58582.herokuapp.com/logs?q=${text}`);
+        const res = await fetch(`api/?q=${text}`);
         const data = await res.json();
 
         dispatch({

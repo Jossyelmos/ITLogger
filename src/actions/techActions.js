@@ -6,12 +6,13 @@ import {
     SET_LOADING
 } from './types';
 
+const api = 'http://localhost:3100/techs'
 // Get techs from server
 export const getTechs = () => async dispatch => {
     try {
         setLoading();
 
-        const res = await fetch('https://pure-anchorage-58582.herokuapp.com/techs');
+        const res = await fetch(api);
         const data = await res.json();
 
         dispatch({
@@ -31,7 +32,7 @@ export const addTech = (tech) => async dispatch => {
     try {
         setLoading();
 
-        const res = await fetch('https://pure-anchorage-58582.herokuapp.com/techs', {
+        const res = await fetch(api, {
             method: 'POST',
             body: JSON.stringify(tech),
             headers: {
@@ -57,7 +58,7 @@ export const deleteTech = (id) => async dispatch => {
     try {
         setLoading();
 
-        await fetch(`https://pure-anchorage-58582.herokuapp.com/techs/${id}`, {
+        await fetch(`api/${id}`, {
             method: 'DELETE',
         });
 
