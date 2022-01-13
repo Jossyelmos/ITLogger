@@ -48,5 +48,5 @@
     "concurrently": "^6.2.1",
     "json-server": "^0.16.3"
   },
-  "proxy": "https://it-logger-2.herokuapp.com/"
+  "proxy": "https://it-logger-api.herokuapp.com/"
 }

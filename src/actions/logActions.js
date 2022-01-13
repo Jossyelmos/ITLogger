@@ -10,7 +10,7 @@ import {
     CLEAR_CURRENT 
 } from './types';
 
-const api = 'https://it-logger-2.herokuapp.com/logs'
+const api = 'https://it-logger-api.herokuapp.com/logs'
 
 // Get Logs from server
 export const getLogs = () => async dispatch => {
