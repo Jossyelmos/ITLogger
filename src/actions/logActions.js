@@ -10,14 +10,14 @@ import {
     CLEAR_CURRENT 
 } from './types';
 
-const api = 'https://it-logger-api.herokuapp.com/logs'
+const logAPI = "https://loggers-backend.herokuapp.com/logs";
 
 // Get Logs from server
 export const getLogs = () => async dispatch => {
     try {
         setLoading();
 
-        const res = await fetch(api);
+        const res = await fetch(logAPI);
         const data = await res.json();
 
         dispatch({
@@ -37,7 +37,7 @@ export const addLogs = (log) => async dispatch => {
     try {
         setLoading();
 
-        const res = await fetch(api, {
+        const res = await fetch(logAPI, {
             method: 'POST',
             body: JSON.stringify(log),
             headers: {
@@ -63,7 +63,7 @@ export const deleteLog = id => async dispatch => {
     try {
         setLoading(true);
 
-        await fetch(`api/${id}`, {method: 'DELETE'});
+        await fetch(`logAPI/${id}`, {method: 'DELETE'});
 
         dispatch({
             type: DELETE_LOG,
@@ -82,7 +82,7 @@ export const updateLog = log => async dispatch => {
     try {
         setLoading(true);
 
-        const res = await fetch(`api/${log.id}`, {
+        const res = await fetch(`logAPI/${log.id}`, {
             method: 'PUT',
             body: JSON.stringify(log),
             headers: {
@@ -109,7 +109,7 @@ export const searchLogs = (text) => async dispatch => {
     try {
         setLoading();
 
-        const res = await fetch(`api/?q=${text}`);
+        const res = await fetch(`logAPI/?q=${text}`);
         const data = await res.json();
 
         dispatch({
