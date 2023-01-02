@@ -6,7 +6,7 @@ import {
     SET_LOADING
 } from './types';
 
-const techAPI = "https://loggers-backend.herokuapp.com/techs";
+const techAPI = "https://logger-api-p7kn.onrender.com/techs";
 
 // Get techs from server
 export const getTechs = () => async dispatch => {

@@ -10,7 +10,7 @@ import {
     CLEAR_CURRENT 
 } from './types';
 
-const logAPI = "https://loggers-backend.herokuapp.com/logs";
+const logAPI = "https://logger-api-p7kn.onrender.com/logs";
 
 // Get Logs from server
 export const getLogs = () => async dispatch => {
@@ -19,6 +19,7 @@ export const getLogs = () => async dispatch => {
 
         const res = await fetch(logAPI);
         const data = await res.json();
+        console.log(data)
 
         dispatch({
             type: GET_LOGS,
@@ -110,7 +111,7 @@ export const searchLogs = (text) => async dispatch => {
         setLoading();
 
         const res = await fetch(`logAPI/?q=${text}`);
-        const data = await res.json();
+        const data = await res.logs.json();
 
         dispatch({
             type: SEARCH_LOGS,
